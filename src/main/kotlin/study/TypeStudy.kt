@@ -1,29 +1,27 @@
 package study
 
 class TypeStudy {
-//    val smallType: Int = 1
-//    val bigType: Long = smallType
-
     val smallType: Int = 1
-    val bigType: Long = smallType.toLong()
-
-    val testVal = 1;
 }
 
 class ChangeObject {
-    fun isAny(obj: Any) {
-        if(obj is TypeStudy) {
-            val typeStudy = obj as TypeStudy
-            typeStudy.testVal
-        }
+    fun isAny(obj: Any?) {
+        val any = obj as? TypeStudy ?: EtcObject()
     }
+}
 
-    fun isAny2(obj: Any?) {
-        val typeStudy = obj as? TypeStudy// ?: ChangeObject()
-        println(typeStudy?.testVal)
-    }
+class EtcObject {
+
 }
 
 fun main() {
     val changeObject = ChangeObject()
+
+    val resultObj1 = changeObject.isAny(TypeStudy())
+    val resultObj2 = changeObject.isAny(ChangeObject())          // ClassCastException
+    val resultObj3 = changeObject.isAny(null)               // NullPointerException
+
+//    println( resultObj1?.smallType )
+//    println( resultObj2?.smallType )
+//    println( resultObj3?.smallType )
 }
