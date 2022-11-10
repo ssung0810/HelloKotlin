@@ -20,5 +20,4 @@ fun main() {
     val myWallet1 = MyWallet(1000)
     val myWallet2 = MyWallet(1000)
 
-    println( myWallet1 + myWallet2 )
 }
